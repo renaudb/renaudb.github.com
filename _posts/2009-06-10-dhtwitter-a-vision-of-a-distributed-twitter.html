@@ -1,0 +1,50 @@
+---
+layout: post
+title: ! 'DHTwitter: A Vision of a Distributed Twitter'
+tags:
+- Cloud Computing
+- DHT
+- Distributed Computing
+- Twitter
+- Web
+status: publish
+type: post
+published: true
+meta:
+  syntaxhighlighter_encoded: '1'
+  _edit_last: '1'
+  dsq_needs_sync: '1'
+---
+<p>First of all, I have to say that this post is about an idea, not code. Now that this is said, here is the idea. As I said in a <a href="http://renaudbourassa.com/blog/2009/05/05/why-twitter-inc-will-fail/">previous post</a>, Twitter is facing a problem that could lead to its extinction. More and more people use third-party clients to access Twitter, thus decentralizing the system while keeping the load on the servers. Less people using the Twitter interface means less possibility of monetization and could ultimately lead to the company going bankrupt. The obvious solution to this problem would be to simply restrict the access to the service by limiting the API. However, since closing itself to the world is never a good thing to do, something else has to be done. This is were the idea of DHTwitter comes into play.</p>
+
+<strong>The Classic Way</strong>
+
+<p>First, lets look at Twitter as it is right now. Yes, Twitter is a social application and as such, each of the network's nodes, each user, is connected to a certain number of other nodes. The apparent structure of the service is thus the one of a peer-to-peer network or a decentralized network. However, from a technology point of view, this is not the case. Twitter is a fully centralized network.</p>
+
+<img class="aligncenter size-full wp-image-393" title="twitternetwork" src="http://dl.dropbox.com/u/1417283/site/uploads/2009/06/twitternetwork.jpg" alt="twitternetwork" width="491" height="332" />
+
+<p>To do whatever action you want to do, you have to go through the company's servers. Every single request, whether it is through the Twitter public API or directly on the website, has to be processed by Twitter. All the clients do is parse the server's response, all the hard work is done on Twitter's side.</p>
+
+<img class="alignnone size-full wp-image-394" title="twitterquery" src="http://dl.dropbox.com/u/1417283/site/uploads/2009/06/twitterquery.jpg" alt="twitterquery" width="529" height="97" />
+
+<p>Why is this bad? Because Twitter's users check often for new messages since they post a lot of messages. Also, Twitter's open API led to the creation of many applications based on the service, the worst for the company being clients and automated services. First, a lot of clients, to stay up to date, will make frequent requests to the servers to see if something new was posted. This wouldn't be too bad, for example, with a blog service where people only post once in a while, because the servers could use a cache system to reduce unnecessary processing. However, with its thousand of new tweets per minute (and growing), a caching system is hardly useful for Twitter. The second problem is automated applications such as Wordpress plugins or blog update services. These service also make a lot of requests, every time a blog page is loaded in the case of Wordpress and at a certain rate for the update services. Again, each request sent by the service has to be processed on Twitter's servers, thus requiring a lot of processing power without the user even seeing the little Twitter bird.</p>
+
+<strong>The Efficient Way</strong>
+
+<p>So how can we solve this problem? Well, since Twitter is, by its social nature, decentralized, why not try to decentralize the system? This is what peer-to-peer applications such as BitTorrent and Skype have been doing for a while, and it seems to work well. Starting with the second generation of peer-to-peer networks, decentralization became a key idea. This culminated with the integration of Distributed Hash Tables (DHT) in peer-to-peer protocols and clients. From <a href="http://en.wikipedia.org/wiki/Distributed_hash_table">Wikipedia</a>:</p>
+
+<blockquote>Distributed hash tables (DHTs) are a class of decentralized distributed systems that provide a lookup service similar to a hash table: (key, value) pairs are stored in the DHT, and any participating node can efficiently retrieve the value associated with a given key. Responsibility for maintaining the mapping from keys to values is distributed among the nodes, in such a way that a change in the set of participants causes a minimal amount of disruption.</blockquote>
+
+<p>So how does this apply to Twitter? Well, with its minimalist structure, Twitter is the perfect candidate for a DHT system. DHTs use key value pairs for data management and Twitter is just that, a key value system. The key is your username, and the value your tweets. What makes this an even better solution, is the simplicity of the service. Compared with Facebook activity or blog posts, tweets doesn't include complex data such as images or text formatting. It is all about text, and small pieces of text. This not only makes storing user's data easy, but it also requires less space. A simple XML file of an average size could be use to store a user's full history of tweets and a list of all of his followers/following.</p>
+
+<p>The idea of DHTwitter is to create an additional layer of abstraction, this time between the Twitter API and the client or application used by the end user. This API would include the <a href="http://en.wikipedia.org/wiki/Distributed_hash_table#Overlay_network">overlay network</a> and the <a href="http://en.wikipedia.org/wiki/Distributed_hash_table#Keyspace_partitioning">keyspace partitioning</a> specifications needed to establish the DHT. Once this is done, the API would redirect requests to the Peer Cloud to see if the information is available before hitting Twitter's servers. If the user wants to publish a tweet, then all the API has to do is to publish it in the Peer Cloud as well as on Twitter's servers to be accessible from everyone, even people not using DHTwitter. By sending the information part by part and by sending the latest tweets first, transfer speed would be less of a problem. Also, keeping a user's friends close to him in the overlay network would make request processing in the Peer Cloud faster.</p>
+
+<img class="alignnone size-full wp-image-392" title="dhtwitterquery" src="http://dl.dropbox.com/u/1417283/site/uploads/2009/06/dhtwitterquery.jpg" alt="dhtwitterquery" width="529" height="203" />
+
+<p>This would seriously reduce the load on Twitter's server by distributing the lookup and parsing processing throughout the Peer Cloud. It would reduce the number of server hits by connecting the users together, in the same way they connect in the social layer.</p>
+
+<img class="alignnone size-full wp-image-391" title="dhtwitternetwork" src="http://dl.dropbox.com/u/1417283/site/uploads/2009/06/dhtwitternetwork.jpg" alt="dhtwitternetwork" width="493" height="333" />
+
+<strong>Possible Implementation</strong>
+
+<p>For now, this is only an idea. I am not planning on coding an implementation on my own in the near future. However, if someone is interested, please let me know, I would love to participate in the development. The biggest challenge in implementing DHTwitter is the lack of libraries for DHTs. Full system specifications exist; <a href="http://xlattice.sourceforge.net/components/protocol/kademlia/specs.html">Kademlia</a>, <a href="http://freepastry.org/">Pastry</a> and <a href="http://current.cs.ucsb.edu/projects/chimera/">Tapestry</a>(Chimera) are good examples. However, there is a lack of solid implementation. Librairies are practically nonexistent and most practical implementations are hard coded into existing applications, such as Vuze or LimeWire. Again, if you thought of a way this could be implemented, please let me know.</p>

@@ -1,0 +1,53 @@
+---
+layout: default
+title: Renaud Bourassa
+---
+
+<div id="main" class="home">
+  <section id="about">
+    <h1 class="home-title"><span>About</span></h1>
+    <div id="about-desc">
+      <p>
+	Hi stranger, and welcome to my world. My name is Renaud Bourassa and
+	I am a Software Engineering student at the
+	<a href="http://uwaterloo.ca/">University of Waterloo</a>.
+	My background is in
+	<a href="http://www.linkedin.com/in/renaudbourassa/#profile-education" target="_blank">Computer Science</a>,
+	with an emphasis on
+	<a href="http://www.linkedin.com/in/renaudbourassa/#profile-experience" target="_blank">Machine Learning</a>
+	and its applications, but my interests are varied, ranging from
+	theoretical physics to microeconomics. Make yourself at home.
+      </p>
+    </div>
+    <div id="about-links">
+      <ul>
+	<li><img src="/images/github.png"/><a href="http://github.com/renaudb">Github</a></li>
+	<li><img src="/images/linkedin.png"/><a href="http://www.linkedin.com/in/renaudbourassa">Linkedin</a></li>
+	<li><img src="/images/twitter.png"/><a href="http://twitter.com/renaudb">Twitter</a></li>
+	<li><img src="/images/vimeo.png"/><a href="http://www.vimeo.com/vimeo">Vimeo</a></li>
+      </ul>
+    </div>
+    <br style="clear:both"/>
+    <p>&nbsp;</p>
+  </section>
+
+  <section id="posts">
+    <h1 class="home-title"><span>Latest Posts</span> <a href="/archives.html">view all</a></h1>
+    <ul class="home-list">
+      {% for post in site.posts limit:10 %}
+      <li>
+	<a href="{{ post.url }}">{{ post.title }}</a>
+	<time class="home-list-right" datetime="{{ post.date | date_to_string }}" pubdate="pubdate">{{ post.date | date_to_string }}</time>
+      </li>
+      {% endfor %}
+    </ul>
+    <p>&nbsp;</p>
+  </section>
+
+  <section id="projects">
+    <h1 class="home-title"><span>Latest Projects</span> <a href="https://github.com/renaudb" target="_blank">view all</a></h1>
+    <ul id="github-project-list" class="home-list">
+    </ul>
+    <p>&nbsp;</p>
+  </section>
+</div>

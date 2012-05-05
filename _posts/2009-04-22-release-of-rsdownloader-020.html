@@ -1,0 +1,63 @@
+---
+layout: post
+title: Release of RSDownloader 0.2.0
+tags:
+- FilesTube
+- Projects
+- RapidShare
+- RSDownloader
+- Ruby
+status: publish
+type: post
+published: true
+meta:
+  syntaxhighlighter_encoded: '1'
+  _edit_last: '1'
+---
+<p>It is here! After some development during the exam session and a final revision now that I am done with university, I am proud to announce the release of RSDownloader 0.2.0. A lot of things changed since the first draft that was version 0.1.0. First, I changed the download code to be more modular. I created a Download superclass that can be used as a model to create specific download classes for different filehosting websites easily. As of now I implemented <a href="http://rapidshare.com/">RapidShare</a> and <a href="http://www.filestube.com/">FilesTube</a> and I may add others in the future. I also implemented a search function that relies on the FilesTube API to search files by keyword. Last but not least, I changed the structure of the package to look and act more like a real package. I added setup.rb support to make the installation easier and I released the source code under <a href="http://www.gnu.org/licenses/gpl-3.0.html">GPLv3</a>.</p>
+
+<p>If you are interested in implementing any other functionality or website, don't hesitate to fork the project on <a href="http://github.com/renaudb/rsdownloader/">github</a>. Here is the code of the Download superclass.</p>
+
+{% highlight ruby linenos %}
+# The Download superclass
+class Download
+  attr_accessor :url, :name
+
+  # Initializes a download
+  def initialize(url, opts)
+    @url = url
+    @opts = opts
+    @file = nil
+  end
+
+  # Tests the url
+  def test
+    begin
+      Net::HTTP.get_response(URI.parse(url)).value
+    rescue
+      return false
+    end
+    return true
+  end
+
+  # Executes the download
+  def execute
+    self.set_file
+    self.download
+  end
+
+  # Sets the file for the download
+  def set_file
+    @file = @url
+  end
+
+  # Downloads the file
+  def download
+    cmd = "wget -c --user-agent=\"#{@opts[:header]['User-Agent']}\""
+    cmd += " -q" if !$verbose
+    cmd += " --directory-prefix=\"#{@opts[:dir]}\"" if @opts[:dir]
+
+    IO.popen(cmd + " #{@file}"){|f|}a
+  end
+end
+{% endhighlight %}

@@ -1,0 +1,40 @@
+---
+layout: post
+title: Privacy Piracy
+tags:
+- Anonymity
+- Encryption
+- File Sharing
+- Privacy
+- Web
+status: publish
+type: post
+published: true
+meta:
+  syntaxhighlighter_encoded: '1'
+  _edit_last: '1'
+---
+<p>Yesterday, a friend of mine received a letter from Videotron, his Internet service provider, telling him that he should stop downloading copyrighted content. He immediately called me in panic, not because he is afraid of Videotron's menaces (he is in law school), but because he is worried that someone is observing what he is doing on the Internet. I have to say that I would also be worried if I received a letter confirming me that my ISP is spying on me. So like I said, he called me asking me for ways to protect his private life from piracy from so called anti-piracy groups. I thus decided to make a list of programs I know of that can help you protect your personal data from your ISP and/or external observers.</p>
+
+<strong><a href="https://www.torproject.org/">Tor</a></strong>
+<p>Tor is free software that helps you protect your privacy online. It is an implementation of onion routing that allows you to browse the Internet anonymously. It is a decentralized network, meaning that anybody can create an anonymous server and add it to the network. To make a long story short, onion routing systems work by encrypting packets multiple time using different keys from different server in the network. The packet is then sent to the first server who can decrypt the first layer to find who to send the packet to next. The following servers then do the same thing until the packet reaches its final destination. This way, each server is only aware of the server that comes just before and after it. It is thus impossible for a single server to tell who the packet comes from and what is its final destination. From an ISP point of view, the packet just looks like it is going to a random server and its encrypted content looks like gibberish. Tor is probably the most popular anonymity network and it is the one I was using when I started college. A good front-end for the system is the cross-platform controller <a href="https://www.torproject.org/vidalia/">Vidalia</a>.</p>
+
+<strong><a href="https://www.jondos.de/en/">JAP/JonDonym</a></strong>
+<p>JAP, the Java Anon Proxy, is similar in design to Tor. It also uses multiple layers of encryption to anonymize the users. The main difference is that JAP servers are not anonymous. When you use the service, you can choose between different Mix Cascades of server. This allows you to choose who you trust and who you don't. This is a major difference with Tor, with which you don't know who owns the servers and if they are keeping logs. However, this has a downside. Since everybody knows who owns the servers, this leaves them vulnerable to attacks from hackers or the government. There is also a known backdoor implemented in the software following an intervention by the German Federal Criminal Police Office. It is still a good service though, and one that I used for my last year in college after the IT service found how to block Tor.</p>
+
+<img class="aligncenter size-full wp-image-378" title="JonDonym" src="http://dl.dropbox.com/u/1417283/site/uploads/2009/05/jondonym.jpg" alt="JonDonym" width="515" height="391" />
+
+<strong><a href="http://www.i2p2.de/">I2P</a></strong>
+<p>I2P stands for the Invisible Internet Project. It is also a system that keeps its users anonymity using multiple layers of encryption. It is a decentralized network, like Tor. However, it encrypts the data from the beginning to the ends. It even keeps the sender and the destination secret to the middle servers. It can easily be integrated into different software to anonymize their activity over the Internet. Supported protocols include regular TCP/IP communications through I2PTunnel, a simple tunneling application to browse the web, BitTorrent, eDonkey, Gnutella and more. However, it is still considered as beta so there may be some bugs left.</p>
+
+<strong><a href="http://phoenixlabs.org/pg2/">Peer Guardian/MoBlock</a></strong>
+<p>Peer Guardian, for Windows and Mac OS X, and MoBlock, for Linux, are open source IP filtering programs. These programs allows you to create a list of IP addresses that you don't want your computer to connect to. You can easily find extensive lists for anti-piracy groups on the Internet. These lists includes IP addresses from the MPAA, MediaDefender and other groups which use peer-to-peer network to find people to sue for copyright infringement. This way you can make sure you share only with real peers and not people who wants to spy on you.</p>
+
+<strong><a href="http://en.wikipedia.org/wiki/VPN">VPN</a></strong>
+<p>If the solutions above are not enough, or if you don't want to sacrifice speed by going through an anonymous network, then subscribing to a VPN may be a good alternative for you. A VPN, a virtual private network, is similar to a home network except that it sits on the Internet instead of being local. By connecting to the network, all outside requests you make through the network uses the network's IP address. This means that it is impossible to tell who the original requests come from, only which VPN it comes from. Also, from an ISP point of view, all the requests look like they are directed to the same address and the content of the packets is usually encrypted. An example of a VPN provider is <a href="http://ipredator.se/">IPREDator</a>, a service offered by the founders of <a href="http://thepiratebay.org/">The Pirate Bay</a>. For an extensive list, your can <a href="http://www.google.com/search?hl=en&amp;q=vpn+providers&amp;aq=0&amp;oq=VPN+provider&amp;aqi=g8">google for VPN providers</a>.</p>
+
+<img class="aligncenter size-full wp-image-386" title="VPN" src="http://dl.dropbox.com/u/1417283/site/uploads/2009/05/vpn-only.png" alt="VPN" width="480" height="408" />
+
+<p>Most file sharing protocols also allow encrypted transfers. Just look through your client's options. Even though the encryption is pretty weak, it can mislead your ISP filtering system into thinking it is regular traffic. Another useful tool to help you navigate anonymously is FoxyProxy. It is a small Firefox addon that eases the transition from one service to the other. This way you can switch from normal browsing to anonymous browsing in a single click.</p>
+
+<p>So don't be a dummy and protect your privacy!</p>
