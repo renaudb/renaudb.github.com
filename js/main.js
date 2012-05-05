@@ -1,7 +1,14 @@
 var RB = (function() {
 
     function loadGithubProjects(anchor) {
-	$.getJSON('https://api.github.com/users/renaudb/repos?type=owner', function(data) {
+	$.getJSON('https://api.github.com/users/renaudb/repos?type=owner&callback=?', function(resp) {
+	    meta = resp.meta;
+	    data = resp.data;
+
+	    if (meta.status != 200) {
+		return;
+	    }
+
 	    items = [];
 
 	    data.sort(function(r1, r2) {
