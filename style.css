@@ -30,21 +30,21 @@ p {
 
 @media screen and (min-width: 768px) {
     #container {
-	      align-items: center;
-	      display: flex;
-	      height: 100vh;
-	      padding: 0 10%;
+        align-items: center;
+        display: flex;
+        height: 100vh;
+        padding: 0 10%;
     }
 }
 
 main {
     margin: 0;
-	  max-width: 500px;
+    max-width: 500px;
 }
 
 @media screen and (min-width: 768px) {
     main {
-	      width: 500px;
+        width: 500px;
     }
 }
 
