@@ -7,8 +7,15 @@
     padding: 0;
 }
 
+html {
+    overflow: hidden
+}
+
 body {
     background-color: #f9f9f9;
+    height: 100%;
+    position: fixed;
+    width: 100%;
 }
 
 h1 {
@@ -32,7 +39,7 @@ p {
 #container {
     align-items: center;
     display: flex;
-    height: 100vh;
+    height: 100%;
     padding: 0 5%;
 }
 
