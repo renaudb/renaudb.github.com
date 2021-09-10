@@ -7,11 +7,13 @@
     padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #f9f9f9;
     height: 100%;
-    position: fixed;
-    width: 100%;
 }
 
 h1 {
