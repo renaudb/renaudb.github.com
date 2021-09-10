@@ -1,9 +1,10 @@
 * {
-    margin: 0;
-    padding: 0;
     color: #212121;
     font-size: 1em;
     font-family: Lato, sans-serif;
+    letter-spacing: normal;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
 
 h1 {
     font-size: 2.5em;
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom: 1rem;
 }
 
@@ -29,14 +30,14 @@ p {
 }
 
 #container {
-    padding: 5%;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    padding: 0 5%;
 }
 
 @media screen and (min-width: 768px) {
     #container {
-        align-items: center;
-        display: flex;
-        height: 100vh;
         padding: 0 10%;
     }
 }
@@ -65,16 +66,15 @@ footer li {
 }
 
 footer li a {
+    border: 1px solid #212121;
     display: block;
-    padding: 0.6em 0.8em;
-    margin-right: 0.6em;
-    background-color: #212121;
-    color: #f9f9f9;
-    text-decoration: none;
-    text-transform: uppercase;
     font-size: 0.8em;
+    margin-right: 0.8em;
+    padding: 0.6em 0.8em;
+    text-decoration: none;
 }
 
 footer li a:hover {
-    background-color: #424242;
+    background-color: #212121;
+    color: #f9f9f9;
 }
