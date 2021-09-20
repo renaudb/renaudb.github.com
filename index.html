@@ -9,10 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" />
     <link rel="stylesheet" href="style.css">
+    <script>
+      window.onload = () => {
+	const imgs = [
+	  'images/bay.jpg',
+	  'images/point.jpg',
+	  'images/tree.jpg',
+	];
+	const idx = Math.floor(Math.random() * imgs.length);
+	document.getElementById("image").src = imgs[idx];
+      };
+    </script>
   </head>
   <body>
-    <div id="container">
-      <main>
+    <div class="contain">
+      <main class="content">
         <h1>Renaud Bourassa</h1>
         <h2>Software engineer</h2>
         <p>
@@ -23,14 +34,17 @@
         <p>
           I am currently taking a sabbatical.
         </p>
-        <footer>
+        <nav class="social">
           <ul>
-            <li><a href="mailto:_@renaudb.com" target="_top">Contact</a></li>
+            <li><a href="mailto:_@renaudb.com" target="_blank">Contact</a></li>
             <li><a href="https://www.linkedin.com/in/renaudbourassa" target="_blank">Resume</a></li>
             <li><a href="https://www.github.com/renaudb" target="_blank">Projects</a></li>
           </ul>
-        </footer>
+        </nav>
       </main>
     </div>
+    <aside class="image">
+      <img id="image" src="" alt="Background image">
+    </aside>
   </body>
 </html>
