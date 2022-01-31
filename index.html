@@ -9,17 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" />
     <link rel="stylesheet" href="style.css">
-    <script>
-      window.onload = () => {
-	const imgs = [
-	  'images/bay.jpg',
-	  'images/point.jpg',
-	  'images/tree.jpg',
-	];
-	const idx = Math.floor(Math.random() * imgs.length);
-	document.getElementById("image").src = imgs[idx];
-      };
-    </script>
   </head>
   <body>
     <div class="contain">
@@ -30,9 +19,11 @@
           I write code for a living, with a focus on smart systems. When not at
           work, I can usually be found travelling or enjoying the outdoors.
         </p>
-        <h2>Gone fishing (2020 - now)</h2>
+        <h2>Stripe (2021 - now)</h2>
         <p>
-          I am currently taking a sabbatical.
+          I am currently at Stripe where I work on the underwriting engine
+	  powering our <a href="https://stripe.com/capital" target="_blank">Capital</a>
+	  product.
         </p>
         <nav class="social">
           <ul>
@@ -44,7 +35,7 @@
       </main>
     </div>
     <aside class="image">
-      <img id="image" src="" alt="Background image">
+      <img id="image" src="images/river.jpg" alt="Background image">
     </aside>
   </body>
 </html>
